@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Sources  
+from .models import Sources
 #Getting the NEWS_API_KEY
 api_key = None
 #Getting the news base_url
@@ -15,3 +15,14 @@ def get_sources(sources):
     '''
     function that gets the json response and converts to python dictionary
     '''
+    get_sources_url =base_url.format(sources,api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+         get_sources_data =url.read()
+         get_sources_reponse= json.loads(get_sources_data)
+
+        sources_results = None
+        if get_sources_reponse['results']:
+            sources_results_list = get_sources_reponse['results']
+            sources_results = process_sources(sources_results_list)
+    return sources_results
