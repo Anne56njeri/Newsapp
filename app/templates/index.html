@@ -1,5 +1,7 @@
-{% import 'macro.html'as macro %}
+{% import 'macros.html'as macro %}
 {% extends 'base.html'%}
+<div class="container">
+  {% block content%}
 <body>
 <!--Business sources-->
 <h3> Business Sources </h3>
@@ -7,3 +9,5 @@
   {{macro.displaySources(business)}}
 </ul>
 </body>
+{% endblock %}
+</div>

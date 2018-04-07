@@ -1,11 +1,11 @@
 from flask import render_template,request,url_for
 from . import main
-from .. requests import
+from .. request import get_sources
 from ..models import Sources
 
 @main.route('/')
 def index():
-    business_source = get_sources('business')
-    print(business_source)
+    business = get_sources('us', 'business')
+
     title = 'Home - welcome to Newsapp'
-    return render_template('index.html' title= title ,business = business_source)
+    return render_template('index.html', title = title ,business = business)
