@@ -6,6 +6,7 @@ from ..models import Sources
 @main.route('/')
 def index():
     business = get_sources('us', 'business')
+    sports =get_sources('us','sports')
 
     title = 'Home - welcome to Newsapp'
-    return render_template('index.html', title = title ,business = business)
+    return render_template('index.html', title = title ,business = business, sports=sports)
