@@ -26,3 +26,14 @@ def get_sources(sources):
             sources_results_list = get_sources_reponse['results']
             sources_results = process_sources(sources_results_list)
     return sources_results
+def process_sources(sources_results):
+    sources_results = []
+    for source_item in sources_results:
+        id = source_item.get('id')
+        title= source_item.get('title')
+        overview = source_item.get('overview')
+        image = source_item.get('image_path')
+        if image:
+            source_object= Sources(id,title,overview,image)
+            sources_results.append(source_object)
+    return sources_results        
