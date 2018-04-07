@@ -9,6 +9,7 @@ def index():
     sports =get_sources('us','sports')
     entertainment=get_sources('us','entertainment')
     health=get_sources('us','health')
-
+    technology=get_sources('us','technology')
+    general=get_sources('us','general')
     title = 'Home - welcome to Newsapp'
-    return render_template('index.html', title = title ,business = business, sports=sports,entertainment=entertainment,health=health)
+    return render_template('index.html', title = title ,business = business, sports=sports,entertainment=entertainment,health=health, technology=technology,general=general)

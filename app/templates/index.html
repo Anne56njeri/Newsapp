@@ -4,9 +4,9 @@
   {% block content%}
 <body>
 <!--Business sources-->
-<h3> Business Sources </h3>
+<h3> General Sources </h3>
 <ul>
-  {{macro.displaySources(business)}}
+  {{macro.displaySources(general)}}
 </ul>
 <h3> Sports Sources</h3>
 <ul>
@@ -17,7 +17,15 @@
   <ul>
   {{macro.displaySources(entertainment)}}
 </ul>
-<h3>Health Sources</h3>
+<h3>Business Sources</h3>
+<ul>
+  {{macro.displaySources(business)}}
+</ul>
+<h3> Technology Sources</h3>
+<ul>
+  {{macro.displaySources(technology)}}
+</ul>
+<h3> Health Sources</h3>
 <ul>
   {{macro.displaySources(health)}}
 </ul>
