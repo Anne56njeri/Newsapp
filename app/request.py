@@ -60,3 +60,35 @@ def get_artlicles(id):
         '''
         articles_results= process_articles(articles_result_list)
     return articles_results
+def process_articles(article_list):
+    articles_results = []
+    '''
+    stored information about every source
+    '''
+    source_dictionary ={}
+    for results in articles_results:
+        '''
+        we loop through the articles results and get the source_item then get the source id and store it in a dictionary
+        '''
+        '''
+        we pass in the keys using the get() to access the values
+        '''
+        source_id = results['source_item']
+        source_dictionary['id']=source_id['id']
+        source_dictionary['name']=source_id['name']
+        id= source_dictionary['id']
+        name= source_dictionary['name']
+        author=results.get('author')
+        publishedAt=results.get('publishedAt')
+        title=results.get('title')
+        url=result.get('url')
+        urlToimage=results.get('urlToimage')
+        description=results.get('description')
+        '''
+        to avoid errors we first check if it has a url to the image to avoid errors
+        '''
+
+        if urlToimage:
+            source_object =Articles(id,name,author,publishedAt,title,url,urlToimage,description)
+            articles_results.append(source_object)
+    return articles_results
