@@ -17,5 +17,5 @@ def index():
     return render_template('index.html', title = title ,business = business, sports=sports,entertainment=entertainment,health=health, technology=technology,general=general,general_ch=general)
 @main.route('/article/<id>')
 def article(id):
-    articles= get_artlicles(id)
-    return render_template('article.html' articles=articles)
+    articles_args = get_artlicles(id)
+    return render_template('article.html', articles = articles_args)

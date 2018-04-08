@@ -55,11 +55,11 @@ def get_artlicles(id):
         article_details_response=json.loads(articles_data)
         articles_results = None
         if article_details_response ['articles']:
-        articles_result_list =article_details_response['articles']
-        '''
-        we process the results  in response that have the articles to get details on those articles
-        '''
-        articles_results= process_articles(articles_result_list)
+            '''
+            we process the results  in response that have the articles to get details on those articles
+            '''
+            articles_result_list =article_details_response['articles']
+            articles_results= process_articles(articles_result_list)
     return articles_results
 def process_articles(article_list):
     articles_results = []
