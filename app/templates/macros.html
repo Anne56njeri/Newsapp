@@ -3,6 +3,9 @@
 
      {% for source_item in sources_list%}
          <li><a  href ="/news/source_item.id">{{source_item.name}}</a></li>
-     {% endfor %}
+     {% endfor %}{% endmacro %}
+     {% macro displayArticles(articles_results) %}
+     {% for results in articles_results%}
+     <li>{{article.title}}</li>
 
-{% endmacro %}
+{% endmacro %}{% endfor %}
