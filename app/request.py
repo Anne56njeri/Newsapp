@@ -1,5 +1,6 @@
 import urllib.request,json
 from .models import Sources
+from .models import Articles
 #Getting the NEWS_API_KEY
 api_key = None
 #Getting the news base_url
