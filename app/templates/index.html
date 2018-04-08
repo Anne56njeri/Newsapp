@@ -1,36 +1,42 @@
 {% import 'macros.html'as macro %}
 {% extends 'base.html'%}
 <div class="container">
+  {% block styles%}
+  {{ super() }}
+  <link rel ="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+  {% endblock %}
   {% block content%}
 <body>
 <!--Business sources-->
 
-<h3> General Sources </h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> General Sources </h3>
 <ul>
   {{macro.displaySources(general)}}
 </ul>
 <hr>
-<h3> Sports Sources</h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> Sports Sources</h3>
 <ul>
   {{macro.displaySources(sports)}}
 </ul>
 <hr>
-<h3> Entertainment Sources<h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> Entertainment Sources<h3>
   <ul>
   {{macro.displaySources(entertainment)}}
 </ul>
 <hr>
-<h3>Business Sources</h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold">Business Sources</h3>
 <ul>
   {{macro.displaySources(business)}}
 </ul>
 <hr>
-<h3> Technology Sources</h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> Technology Sources</h3>
 <ul>
   {{macro.displaySources(technology)}}
 </ul>
 <hr>
-<h3> Health Sources</h3>
+<h3 style="font-family: 'Raleway', sans-serif; font-weight: bold "> Health Sources</h3>
 <ul>
   {{macro.displaySources(health)}}
 </ul>
