@@ -11,6 +11,7 @@ def  configure_request(app):
     global api_key,base_url
     api_key= app.config['NEWS_API_KEY']
     base_url= app.config['NEWS_API_BASE_URL']
+    source_url=app.config['NEWS_SOURCES_URL']
 
 def get_sources(country,category):
     '''
@@ -43,3 +44,19 @@ def process_sources(sources_list):
             source_object= Sources(id,name,description,url,category,country)
             sources_results.append(source_object)
     return sources_results
+def get_artlicles(id):
+    '''
+    we create a function that gets the articles that takes in a source's id
+    '''
+    get_article_url = source_url.format(id,apikey)
+    with urllib.request.urlopen(get_article_url) as url:
+        articles_data=url.read()
+        article_details_response=json.loads(articles_data)
+        articles_results = None
+        if article_details_response ['articles']:
+        articles_result_list =article_details_response['articles']
+        '''
+        we process the results  in response that have the articles to get details on those articles
+        '''
+        articles_results= process_articles(articles_result_list)
+    return articles_results
