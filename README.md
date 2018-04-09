@@ -19,6 +19,9 @@ clone in your local machine
 run stash from your terminal
 
 open http://127.0.0.1:5000/ on your browser to use
+click the link below to view the deployed app  
+https://daillynewss.herokuapp.com/
+
 
 ## Technology used:
 Python3.6
