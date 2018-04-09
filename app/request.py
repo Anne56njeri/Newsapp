@@ -84,10 +84,11 @@ def process_articles(articles_list):
         title=results.get('title')
         url=results.get('url')
         urlToImage=results.get('urlToImage')
+        description=results.get('description')
 
 
 
 
-        source_object =Articles(name,publishedAt,title,url,urlToImage,id,author)
+        source_object =Articles(name,publishedAt,title,url,urlToImage,description,id,author)
         articles_results.append(source_object)
     return articles_results
