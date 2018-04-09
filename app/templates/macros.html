@@ -2,7 +2,10 @@
 {% macro displaySources(sources_list) %}
 
      {% for source in sources_list%}
-         <li><a  href ="/article">{{source.name}}</a></li>
+     <div class="col-sm-6 col-md-3">
+    <button class="button" style="background-color:purple" ><a style="color:white;" href ="/article">{{source.name}}</a></button>
+  </div>
+  <br>
      {% endfor %}
     {% endmacro %}
 

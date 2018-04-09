@@ -8,20 +8,27 @@
 
   {% endblock %}
   {% block content%}
-<body>
+
+  <body>
 <!--Business sources-->
-<div class="container"
-<div class="jumbotron">
-  <h1>Welcome to the News App</h1>
-  <p> This is an application that allows you to view the latest
+<div class="container">
+<div class="jumbotron" style ="background-image:{{url_for('static',filename='images/news.jpg')}};"background="">
+  <h1 style="font-family: 'Raleway', sans-serif">Welcome to the News App</h1>
+  <p style="font-family: 'Raleway', sans-serif"> This is an application that allows you to view the latest
   news from the source of your choice</p>
 </div>
 </div>
-
+<hr>
+<div class="container">
+<div class="jumbotron">
 <h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> General Sources </h3>
-<ul>
+<div class="row">
   {{macro.displaySources(general)}}
-</ul>
+</div>
+</div>
+</div>
+
+
 <hr>
 <h3 style="font-family: 'Raleway', sans-serif; font-weight: bold"> Sports Sources</h3>
 <ul>
