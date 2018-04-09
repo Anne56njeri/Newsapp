@@ -1,18 +1,36 @@
 <!--we create a function that loops through the sources_list-->
 {% macro displaySources(sources_list) %}
 
-     {% for source_item in sources_list%}
-         <li><a  href ="/news/source_item.id">{{source_item.name}}</a></li>
-     {% endfor %}{% endmacro %}
+     {% for source in sources_list%}
+         <li><a  href ="/article">{{source.name}}</a></li>
+     {% endfor %}
+    {% endmacro %}
 
-{% macro displayArticles(articles_results) %}
-    {% for results in articles_results%}
-  <div class ="container">
-    <ul>
-     <li>{{article.title}}</li>
-     <li>{{article.description}}</li>
-    </ul>
- </div>
+{% macro displayArticles(articles_list) %}
+    {% for article in articles_list%}
+
+  <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+                  <a>
+                        <img src="{{article.urlToImage}}"  alt="">
+                    </a>
+
+                  <div class="caption">
+                      <h5 class="card-title">{{article.title}}</h5>
+                      <p class="card-text">{{article.description}}</p>
+                      <p>Published at: {{article.publishedAt}}<p>
+                      <a class="btn btn-primary" href="{{article.url}}">Click here for more</a>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
 
     {% endfor %}
 {% endmacro %}

@@ -9,7 +9,7 @@ base_url =None
 source_url =None
 def  configure_request(app):
     #we make the variables global for them to be accessed by the whole application
-    global api_key,base_url
+    global api_key,base_url,source_url
     api_key= app.config['NEWS_API_KEY']
     base_url= app.config['NEWS_API_BASE_URL']
     source_url=app.config['NEWS_SOURCES_URL']
@@ -45,51 +45,49 @@ def process_sources(sources_list):
             source_object= Sources(id,name,description,url,category,country)
             sources_results.append(source_object)
     return sources_results
-def get_artlicles(id):
+def get_artlicles(country):
     '''
     we create a function that gets the articles that takes in a source's id
     '''
-    get_article_url = source_url.format(id,apikey)
+    get_article_url = source_url.format(country,api_key)
     with urllib.request.urlopen(get_article_url) as url:
         articles_data=url.read()
         article_details_response=json.loads(articles_data)
         articles_results = None
-        if article_details_response ['articles']:
+        if article_details_response['articles']:
             '''
             we process the results  in response that have the articles to get details on those articles
             '''
             articles_result_list =article_details_response['articles']
             articles_results= process_articles(articles_result_list)
     return articles_results
-def process_articles(article_list):
+def process_articles(articles_list):
     articles_results = []
     '''
     stored information about every source
     '''
-    source_dictionary ={}
-    for results in articles_results:
+    for results in articles_list:
         '''
         we loop through the articles results and get the source_item then get the source id and store it in a dictionary
         '''
         '''
         we pass in the keys using the get() to access the values
         '''
-        source_id = results['source_item']
-        source_dictionary['id']=source_id['id']
-        source_dictionary['name']=source_id['name']
-        id= source_dictionary['id']
-        name= source_dictionary['name']
+        results.get('source.id')
+
+
+
+        id=results.get('source.id')
+        name=results.get('source.name')
         author=results.get('author')
         publishedAt=results.get('publishedAt')
         title=results.get('title')
-        url=result.get('url')
-        urlToimage=results.get('urlToimage')
-        description=results.get('description')
-        '''
-        to avoid errors we first check if it has a url to the image to avoid errors
-        '''
+        url=results.get('url')
+        urlToImage=results.get('urlToImage')
 
-        if urlToimage:
-            source_object =Articles(id,name,author,publishedAt,title,url,urlToimage,description)
-            articles_results.append(source_object)
+
+
+
+        source_object =Articles(name,publishedAt,title,url,urlToImage,id,author)
+        articles_results.append(source_object)
     return articles_results

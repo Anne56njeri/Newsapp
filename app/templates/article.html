@@ -2,9 +2,11 @@
 {%import 'macros.html' as macro %}
 {% block content %}
 <div class= "container">
-  <h3> The latest news articles</h3>
   <div class="row">
+  <h3> The latest news articles</h3>
+
   {{macro.displayArticles(articles)}}
- </div>
+</div>
+
 </div>
 {% endblock %}
